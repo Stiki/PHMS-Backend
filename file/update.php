@@ -29,7 +29,11 @@
 		if (mysql_num_rows($result) == 1) {
 			// File exists
 			$query = "UPDATE `phms_files` (`id`,`filename`,`lastmodified`,`lastcommit`,`lastcommitid`,`project`) VALUES (NULL,'$filename','$lastmodified','$lastcommit','$lastcommitid','$project');";
-			
+			$result = $db->query($query);
+			if (mysql_affected_rows($result) == 1) {
+				$valid = true;
+				$assoc = mysql_fetch_assoc($query);
+			}
 			
 		} else {
 			// Create file
