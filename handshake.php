@@ -7,7 +7,7 @@
 	
 	$username = Database::clean_string($_GET["username"]);
 	$password = Database::clean_string($_GET["password"]);
-	$name = Database::clean_string($_GET["name"]);
+	$name = Database::clean_string($_GET["project"]);
 	
 	$valid = false;
 	$assoc = Array();
